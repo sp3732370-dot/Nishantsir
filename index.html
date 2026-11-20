@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SkinExpert Hub - thoughtful skincare, beauty, makeup and hair care guidance for your everyday routine.">
+  <title>SkinExpert Hub | Beauty, Skin & Hair Care</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#102b46;--navy2:#183d5d;--gold:#c6a36a;--cream:#f8f5ef;--ink:#263442;--muted:#6c7882;--white:#fff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"DM Sans",sans-serif;color:var(--ink);background:#fff;line-height:1.65}
+    a{text-decoration:none;color:inherit}
+    .topline{background:var(--navy);color:#f7f3eb;text-align:center;padding:8px 16px;font-size:12px;letter-spacing:1.5px}
+    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid #eee}
+    .nav{max-width:1180px;margin:auto;padding:17px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-family:"Playfair Display",serif;font-size:25px;font-weight:700;color:var(--navy);line-height:1.1}
+    .brand span{display:block;font:600 9px "DM Sans",sans-serif;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-top:5px}
+    .navlinks{display:flex;align-items:center;gap:27px;font-size:13px;font-weight:600;color:#344656}
+    .navlinks a:hover{color:var(--gold)}
+    .nav-cta,.btn{display:inline-block;background:var(--navy);color:#fff;padding:12px 21px;border-radius:3px;font-size:12px;font-weight:700;letter-spacing:.8px;transition:.25s}
+    .nav-cta:hover,.btn:hover{background:var(--gold);color:#142b40;transform:translateY(-2px)}
+    .menu{display:none;background:none;border:0;font-size:25px;color:var(--navy);cursor:pointer}
+    .hero{min-height:620px;display:grid;grid-template-columns:1fr 1fr;background:var(--cream)}
+    .hero-copy{display:flex;flex-direction:column;justify-content:center;padding:80px max(7vw,32px) 80px max(7vw,32px)}
+    .eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:20px}
+    h1,h2,h3{font-family:"Playfair Display",serif;font-weight:600;line-height:1.15}
+    h1{font-size:clamp(42px,5vw,68px);color:var(--navy);max-width:590px}
+    .hero-copy p{color:#65717a;max-width:480px;margin:24px 0 30px;font-size:15px}
+    .hero-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+    .text-link{font-size:12px;font-weight:700;letter-spacing:.7px;border-bottom:1px solid var(--gold);padding-bottom:5px;color:var(--navy)}
+    .hero-image{min-height:500px;position:relative;overflow:hidden}
+    .hero-image img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+    .image-note{position:absolute;bottom:28px;left:28px;background:rgba(255,255,255,.92);padding:15px 19px;color:var(--navy);font:italic 16px "Playfair Display",serif}
+    .trust{max-width:1180px;margin:auto;padding:28px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;border-bottom:1px solid #eee}
+    .trust div{text-align:center;color:var(--navy);font-size:12px;font-weight:700;letter-spacing:1px}
+    .trust small{display:block;color:var(--muted);font-size:11px;font-weight:400;letter-spacing:0;margin-top:3px}
+    section{padding:88px 24px}
+    .section-inner{max-width:1180px;margin:auto}
+    .section-head{text-align:center;max-width:650px;margin:0 auto 42px}
+    .section-head h2{font-size:clamp(32px,4vw,45px);color:var(--navy);margin-bottom:14px}
+    .section-head p{font-size:14px;color:var(--muted)}
+    .categories{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .category{position:relative;min-height:330px;overflow:hidden;background:#eee}
+    .category img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;transition:transform .6s}
+    .category:hover img{transform:scale(1.06)}
+    .category:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(7,25,40,.78))}
+    .category-label{position:absolute;z-index:1;bottom:23px;left:22px;color:#fff}
+    .category-label h3{font-size:25px;margin-bottom:5px}
+    .category-label span{font-size:10px;letter-spacing:2px;text-transform:uppercase}
+    .feature{background:var(--cream)}
+    .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .feature-photo{height:490px;position:relative}
+    .feature-photo img{width:100%;height:100%;object-fit:cover}
+    .feature-copy h2{font-size:clamp(34px,4vw,48px);color:var(--navy);margin-bottom:18px}
+    .feature-copy p{color:var(--muted);font-size:14px;margin-bottom:24px}
+    .ticks{list-style:none;margin:0 0 28px}
+    .ticks li{padding:9px 0;border-bottom:1px solid #e5dfd5;font-size:13px;color:#465563}
+    .ticks li:before{content:"✦";color:var(--gold);margin-right:12px}
+    .articles{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .article{border:1px solid #eee;background:#fff}
+    .article img{width:100%;height:220px;object-fit:cover;display:block}
+    .article-body{padding:22px}
+    .article-body small{color:var(--gold);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:10px}
+    .article-body h3{font-size:23px;color:var(--navy);margin:10px 0}
+    .article-body p{font-size:13px;color:var(--muted);margin-bottom:15px}
+    .article-body a{font-size:11px;letter-spacing:1px;font-weight:700;color:var(--navy);border-bottom:1px solid var(--gold);padding-bottom:4px}
+    .quote{background:var(--navy);color:#fff;text-align:center;padding:75px 24px}
+    .quote blockquote{max-width:780px;margin:auto;font:italic clamp(24px,3.5vw,38px) "Playfair Display",serif}
+    .quote p{color:#d4c09d;font-size:10px;letter-spacing:3px;margin-top:22px;text-transform:uppercase}
+    .contact{background:var(--cream)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+    .contact h2{font-size:42px;color:var(--navy);margin-bottom:15px}
+    .contact p{color:var(--muted);font-size:14px}
+    form{display:grid;gap:13px}
+    input,textarea{width:100%;padding:14px 15px;border:1px solid #dedbd4;background:#fff;font:13px "DM Sans",sans-serif;outline:none}
+    input:focus,textarea:focus{border-color:var(--gold)}
+    textarea{min-height:120px;resize:vertical}
+    button[type=submit]{border:0;cursor:pointer;justify-self:start}
+    footer{background:#0b2034;color:#dce3e8;padding:45px 24px 22px}
+    .footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+    footer .brand{color:#fff}
+    footer p{font-size:12px;color:#aebbc5;max-width:360px;margin-top:13px}
+    .footer-links{display:flex;gap:20px;flex-wrap:wrap;font-size:12px}
+    .copyright{max-width:1180px;margin:30px auto 0;padding-top:18px;border-top:1px solid #294052;color:#91a1ae;font-size:11px}
+    @media(max-width:850px){.navlinks{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;padding:22px 26px;flex-direction:column;align-items:flex-start;border-bottom:1px solid #eee}.navlinks.open{display:flex}.nav-cta{display:none}.menu{display:block}.hero{grid-template-columns:1fr}.hero-copy{padding:70px 8vw}.hero-image{min-height:420px}.categories{grid-template-columns:repeat(2,1fr)}.feature-grid,.contact-grid{grid-template-columns:1fr;gap:35px}.feature-photo{height:380px}.articles{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.topline{font-size:10px}.nav{padding:15px 19px}.brand{font-size:22px}.hero-copy{padding:58px 25px}.hero-image{min-height:330px}.trust{grid-template-columns:1fr;gap:17px}.trust div{border-bottom:1px solid #eee;padding-bottom:13px}section{padding:65px 19px}.categories,.articles{grid-template-columns:1fr}.category{min-height:360px}.feature-photo{height:310px}.contact h2{font-size:35px}.footer-inner{display:block}.footer-links{margin-top:25px}}
+  </style>
+</head>
+<body>
+  <div class="topline">A LITTLE MORE CARE, A LITTLE MORE CONFIDENCE — EVERY DAY</div>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="#home">SkinExpert Hub<span>Beauty • Skin • Hair</span></a>
+      <div class="navlinks" id="navlinks">
+        <a href="#home">HOME</a><a href="#about">ABOUT</a><a href="#services">CATEGORIES</a><a href="#journal">BEAUTY JOURNAL</a><a href="#contact">CONTACT</a>
+      </div>
+      <a class="nav-cta" href="#contact">GET IN TOUCH</a>
+      <button class="menu" id="menuBtn" aria-label="Open navigation">☰</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home" style="padding:0">
+      <div class="hero-copy">
+        <div class="eyebrow">THE ART OF EVERYDAY SELF-CARE</div>
+        <h1>Feel good in the skin you're in.</h1>
+        <p>Discover thoughtful skincare, beauty inspiration and simple hair-care guidance to help you build a routine that feels right for you.</p>
+        <div class="hero-actions"><a class="btn" href="#services">EXPLORE BEAUTY</a><a class="text-link" href="#about">OUR PHILOSOPHY</a></div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1400&q=85" alt="Skincare and self-care beauty setting">
+        <div class="image-note">Your skin. Your story. Your care.</div>
+      </div>
+    </section>
+
+    <div class="trust">
+      <div>SKINCARE MADE SIMPLE<small>Easy-to-follow everyday guidance</small></div>
+      <div>BEAUTY WITH BALANCE<small>Thoughtful tips, not one-size-fits-all rules</small></div>
+      <div>CARE THAT FEELS GOOD<small>Small habits for your daily routine</small></div>
+    </div>
+
+    <section id="services">
+      <div class="section-inner">
+        <div class="section-head"><div class="eyebrow">EXPLORE THE HUB</div><h2>Your beauty, your way</h2><p>Find inspiration and practical information across the beauty topics you love.</p></div>
+        <div class="categories">
+          <a class="category" href="#journal"><img src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=900&q=85" alt="Skincare products"><div class="category-label"><h3>Skincare</h3><span>Routines & essentials</span></div></a>
+          <a class="category" href="#journal"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85" alt="Makeup brushes and cosmetics"><div class="category-label"><h3>Makeup</h3><span>Looks & techniques</span></div></a>
+          <a class="category" href="#journal"><img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=900&q=85" alt="Hair care and styling"><div class="category-label"><h3>Hair Care</h3><span>Healthy hair habits</span></div></a>
+          <a class="category" href="#journal"><img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=900&q=85" alt="Beauty and wellness products"><div class="category-label"><h3>Beauty Tips</h3><span>Everyday inspiration</span></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature" id="about">
+      <div class="section-inner feature-grid">
+        <div class="feature-photo"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1100&q=85" alt="Relaxing skincare facial treatment"></div>
+        <div class="feature-copy"><div class="eyebrow">WELCOME TO SKINEXPERT HUB</div><h2>Good beauty begins with good information.</h2><p>We believe beauty care should feel approachable, enjoyable and personal. Explore clear, beginner-friendly articles that help you understand products, routines and self-care basics.</p><ul class="ticks"><li>Understand your skin and its changing needs</li><li>Learn the purpose of everyday skincare products</li><li>Explore makeup and hair-care inspiration</li><li>Build simple habits at your own pace</li></ul><a class="btn" href="#journal">READ THE JOURNAL</a></div>
+      </div>
+    </section>
+
+    <section id="journal">
+      <div class="section-inner">
+        <div class="section-head"><div class="eyebrow">THE BEAUTY JOURNAL</div><h2>Fresh notes for your routine</h2><p>Start with these beginner-friendly topics and discover what works for your own routine.</p></div>
+        <div class="articles">
+          <article class="article"><img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=900&q=85" alt="Skincare serum bottles"><div class="article-body"><small>SKINCARE BASICS</small><h3>A simple morning skincare routine</h3><p>Learn the basic order of cleanser, moisturiser and sunscreen, and why consistency matters.</p><a href="#contact">READ MORE →</a></div></article>
+          <article class="article"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85" alt="Makeup products"><div class="article-body"><small>MAKEUP</small><h3>Build a beginner makeup kit</h3><p>Explore versatile makeup essentials and simple ways to use them for everyday looks.</p><a href="#contact">READ MORE →</a></div></article>
+          <article class="article"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=85" alt="Hair care inspiration" onerror="this.src='https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=85'"><div class="article-body"><small>HAIR CARE</small><h3>Everyday hair-care habits</h3><p>Small, gentle habits can help make wash days and daily hair care feel easier.</p><a href="#contact">READ MORE →</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <div class="quote"><blockquote>“Taking care of yourself is not a luxury. It is a lovely part of everyday life.”</blockquote><p>THE SKINEXPERT HUB PHILOSOPHY</p></div>
+
+    <section class="contact" id="contact">
+      <div class="section-inner contact-grid">
+        <div><div class="eyebrow">LET'S CONNECT</div><h2>We'd love to hear from you.</h2><p>Have a beauty topic you'd like us to cover? Send a message and let us know what you'd like to read next.</p><p style="margin-top:20px"><strong style="color:#102b46">Email:</strong> your-email@example.com<br><small>Replace this with your business email address.</small></p></div>
+        <form id="contactForm"><input type="text" placeholder="Your name" aria-label="Your name" required><input type="email" placeholder="Your email" aria-label="Your email" required><textarea placeholder="Write your message..." aria-label="Your message" required></textarea><button class="btn" type="submit">SEND MESSAGE</button><p id="formMessage" style="font-size:12px;color:#6c7882" aria-live="polite"></p></form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner"><div><a class="brand" href="#home">SkinExpert Hub<span>Beauty • Skin • Hair</span></a><p>Beauty inspiration and simple care guidance for your everyday routine.</p></div><div class="footer-links"><a href="#home">Home</a><a href="#about">About</a><a href="#services">Categories</a><a href="#journal">Journal</a><a href="#contact">Contact</a></div></div>
+    <div class="copyright">© <span id="year"></span> SkinExpert Hub. All rights reserved. Images load from Unsplash.</div>
+  </footer>
+  <script>
+    const menuBtn=document.getElementById('menuBtn');
+    const navlinks=document.getElementById('navlinks');
+    menuBtn.addEventListener('click',()=>navlinks.classList.toggle('open'));
+    navlinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>navlinks.classList.remove('open')));
+    document.getElementById('year').textContent=new Date().getFullYear();
+    document.getElementById('contactForm').addEventListener('submit',function(e){
+      e.preventDefault();
+      document.getElementById('formMessage').textContent='Thanks! This demo form is not connected yet. Add your email/form service to receive messages.';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
